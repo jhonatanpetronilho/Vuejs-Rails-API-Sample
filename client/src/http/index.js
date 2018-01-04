@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
+import router from '@/router'
 
 // Instance for requests
 export const http = axios.create({
@@ -28,10 +29,13 @@ http.interceptors.response.use(null, (error) => {
   // put response error in store
   store.dispatch('set_errors', `${error}`)
 
-  // check for erros if true and status 401 (Unauthorized), delete token
+  // check for erros if true and status 401 (Unauthorized):
+  // delete token, remove user from store and redirect to login
   if (error.response && error.response.status === 401) {
     if (localStorage.token) {
       delete localStorage.token
+      this.store.dispatch('remove_user')
+      router.go({name: 'login'})
     }
   }
 })

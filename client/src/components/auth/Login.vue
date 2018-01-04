@@ -19,28 +19,14 @@
 import {http} from '@/http'
 
 export default {
-  name: 'Login',
+  name: 'login',
   data () {
     return {
       email: '',
       password: ''
     }
   },
-  created () {
-    this.checkCurrentLogin()
-  },
-  updated () {
-    this.checkCurrentLogin()
-  },
   methods: {
-    // verify for existing token and redirect to dashboard
-    checkCurrentLogin () {
-      if (localStorage.token) {
-        this.$router.replace(this.$route.query.redirect || '/dashboard')
-      }
-      delete localStorage.user_id
-      delete localStorage.user_email
-    },
     login () {
       http.post('auth', {auth: {email: this.email, password: this.password}})
       .then(response => {

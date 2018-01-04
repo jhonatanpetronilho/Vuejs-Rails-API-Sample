@@ -20,12 +20,6 @@
 import {mapGetters} from 'vuex'
 export default {
   name: 'app',
-  created () {
-    this.checkCurrentLogin()
-  },
-  update () {
-    this.checkCurrentLogin()
-  },
   computed: {
     ...mapGetters({
       showErros: 'getErrors',
@@ -35,11 +29,6 @@ export default {
   methods: {
     // If not have localStorage token and path not "/" (login)
     // redirect to root (login)
-    checkCurrentLogin () {
-      if (!localStorage.token && this.$route.path !== '/') {
-        this.$router.push('/?redirect=' + this.$route.path)
-      }
-    },
     logout () {
       this.emptyLocalStorage()
       this.$store.dispatch('remove_user')

@@ -7,6 +7,17 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// Verify auth before router
+router.beforeEach((to, from, next) => {
+  if (!localStorage.token && to.path !== '/') {
+    next({name: 'login'})
+    delete localStorage.user_email
+    delete localStorage.user_id
+  } else {
+    next()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
