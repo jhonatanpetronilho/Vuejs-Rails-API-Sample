@@ -8,7 +8,6 @@
         </span>
       </div>
     </header>
-    <img src="./assets/logo.png">
     <div class="errors" v-if="showErros">
       <p>{{showErros}}</p>
     </div>
@@ -18,6 +17,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+
 export default {
   name: 'app',
   computed: {

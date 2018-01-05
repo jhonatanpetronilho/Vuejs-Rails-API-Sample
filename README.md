@@ -1,8 +1,18 @@
-# Simple Vuejs client and Rails backend API.
+# Simple Vuejs+Quasar client for Rails backend API.
 
 > An simple start kit client for my minimalist rails API projects with Vuejs 2.
 
-## Vuejs setup:
+## ScreenShots:
+### Quasar:
+<a href="screenshots/quasar1.jpg"><img src="screenshots/quasar1.jpg" width="200"></a>
+<a href="screenshots/quasar2.jpg"><img src="screenshots/quasar2.jpg" width="200"></a>
+<a href="screenshots/quasar3.jpg"><img src="screenshots/quasar3.jpg" width="200"></a>
+
+### Vuejs:
+<a href="screenshots/vuejs1.jpg"><img src="screenshots/vuejs1.jpg" width="200"></a>
+<a href="screenshots/vuejs2.jpg"><img src="screenshots/vuejs2.jpg" width="200"></a>
+
+## Vuejs/Quasar setup:
 
 ### Approaches
 
@@ -22,8 +32,11 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8080 Vuejs
 npm run dev
+
+# serve with hot reload at localhost:8080 Quasar
+quasar dev
 
 # build for production with minification
 npm run build

@@ -11,8 +11,7 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (!localStorage.token && to.path !== '/') {
     next({name: 'login'})
-    delete localStorage.user_email
-    delete localStorage.user_id
+    delete localStorage.user
   } else {
     next()
   }

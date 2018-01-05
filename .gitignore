@@ -28,3 +28,11 @@ client/yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+# Ignore Quasar
+.thumbs.db
+quasar/node_modules/
+quasar/dist/
+quasar/npm-debug.log*
+quasar/cordova/platforms
+quasar/cordova/plugins

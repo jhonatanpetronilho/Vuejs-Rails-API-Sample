@@ -16,23 +16,37 @@
 </template>
 
 <script>
-import {http} from '@/http'
+import {http} from 'src/http'
 
 export default {
-  name: 'login',
+  name: 'Login',
   data () {
     return {
       email: '',
       password: ''
     }
   },
+  created () {
+    this.checkCurrentLogin()
+  },
+  updated () {
+    this.checkCurrentLogin()
+  },
   methods: {
+    // verify for existing token and redirect to dashboard
+    checkCurrentLogin () {
+      if (localStorage.token) {
+        this.$router.replace(this.$route.query.redirect || '/dashboard')
+      }
+      delete localStorage.user_id
+      delete localStorage.user_email
+    },
     login () {
       http.post('auth', {auth: {email: this.email, password: this.password}})
-      .then(response => {
-        this.loginSuccessful(response)
-      })
-      .catch(() => this.loginFailed)
+        .then(response => {
+          this.loginSuccessful(response)
+        })
+        .catch(() => this.loginFailed)
     },
     // unless login error exeucute login loginFailed
     // mountUserInfo and move to dashboard
